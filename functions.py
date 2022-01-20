@@ -2,8 +2,8 @@ from operator import truediv
 import constants
 import requests
 from bs4 import BeautifulSoup
-from tkinter import *
-import tkinter.messagebox
+import tkinter as tk
+import tkinter.font as tkFont
 import time
 from datetime import datetime
 from tkinter.messagebox import Message
@@ -18,15 +18,37 @@ email_to = constants.email_to
 
 def message_box(title, message):
     """Show message box with title and message"""
-    MESSAGE_TIME = 2000 # in ms
-    root = Tk() 
-    root.withdraw()
-    try:
-        root.after(MESSAGE_TIME, root.destroy)  
-        Message(title=title, message=message, master=root).show()
-    except TclError:
-        pass
-    #tkinter.messagebox.showinfo(title,  message)
+    MESSAGE_TIME = 5 * 1000 # in ms
+    root = tk.Tk()
+   
+    # get dimension of window
+    window_width = 700
+    window_height = 150
+
+    # get dimension of screen
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+
+    # find center point of screen
+    center_x = int(screen_width/2 - window_width / 2)
+    center_y = int(screen_height/2 - window_height / 2)
+
+    # set the position of the window to the center of the screen
+    root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+
+    root.title(title)
+    #set font and font size
+    fontfamilylist = list(tkFont.families())
+    fontindex = 1
+    fontStyle = tkFont.Font(family=fontfamilylist[fontindex], size = 40)
+
+    
+    label = tk.Label(root, text=message, padx = 10, pady = 10, font = fontStyle)
+    root.after(MESSAGE_TIME, root.withdraw)
+    root.after(MESSAGE_TIME, root.destroy)
+    label.pack()
+
+    root.mainloop()
     
 def construct_url(course_code): 
     """return url given ccorrect course_code"""
@@ -58,9 +80,9 @@ def find_seats(course_code):
     print(course_code, data[0], data[1])    
     if (data[0][0] == 'Total Seats Remaining:' and data[0][1] != '0'):
         current_time = datetime.now().strftime("%H:%M:%S, %d/%m/%Y")
-        title = course_code + ' HAS SEAT = ' + data[0][1] + " @ " + current_time
+        title = course_code + ' HAS SEAT = ' + data[0][1] + "\n @ " + current_time
         email_text = email_text_const(title)
-        #send_email(email_text,gmail_ac,gmail_pw,email_from,email_to)
+        send_email(email_text,gmail_ac,gmail_pw,email_from,email_to)
         message_box('Seat Found', title)
         return True
 
