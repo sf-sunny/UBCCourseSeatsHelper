@@ -11,13 +11,13 @@ course_codes = []
 
 ###################################################################
 # TODO 1. Please add your
-# a. gmail_ac : sender account
-# b. gmail_pw : sender password
+# a. gmail_ac : sender gmail account
+# b. gmail_pw : sender gmail password
 # c. email_from : address of receving notificaion email
 # in the file constants.py (you might need to create one by yourself)
 # 
-# Your sender email might have to enable low-security usage first
-# ref: 
+# Remark: You might have to allow "Less secure app access" first
+# ref: https://www.google.com/settings/security/lesssecureapps
 ###################################################################
 
 ################################################################
@@ -38,7 +38,7 @@ course_codes.append("CPSC 213 L2D")
 #               Any consequences of violating UBC CWL and SSC usage policy shall be borne by the user,
 #               and are unrelated to the developer of this program.
 ###############################################################
-sleep_time = 5
+SLEEP_TIME = 5
 
 
 
@@ -49,6 +49,8 @@ current_time = datetime.now().strftime("%H:%M:%S, %d/%m/%Y")
 
 while True:
     print(datetime.now().strftime("%H:%M:%S, %d/%m/%Y"))
-    for c in course_codes:
-        functions.find_seats(c)
-    time.sleep(sleep_time*60) 
+    for c in course_codes[:]:
+        if (functions.find_seats(c)): 
+            course_codes.remove(c)
+        
+    time.sleep(SLEEP_TIME*60) 
