@@ -3,7 +3,7 @@
 ## Motivation
 Sometimes it might be annoying to monitor if a course has empty seats or not, if you want to register into a course that is full without a waitlist. This program aims to solve this problem by monitoring automatically and send you notication email once there is empty seats.
 
----
+
 
 ## Functions
 Users can use this program to:
@@ -11,7 +11,7 @@ Users can use this program to:
 - ***receive email notification*** once the course has empty seats
 - ***receive a pop-up message*** which self-destruct after 10 seconds once the course has empty seat
 
----
+
 
 ## Steps to run this program
 Steps are outlined here, as well as inside main.py
@@ -33,7 +33,7 @@ Steps are outlined here, as well as inside main.py
 
 4. Run main.py to start monitoring, enjoy!
 
---- 
+
 
 ### Disclaimer   
 This program is for web scraping and automating sending email practice only.
