@@ -1,7 +1,7 @@
 # UBC Course Seats Helper
 
 ## Motivation
-Sometimes it might be annoying to monitor if a course has empty seats or not, if you want to register into a course that is full without a waitlist. This program aims to solve this problem by monitoring automatically and send you notication email once there is empty seats.
+Sometimes it might be annoying to monitor if a course has empty seats or not, if you want to register into a course that is full without a waitlist. This program aims to solve this problem by monitoring automatically and send you notification email once there is empty seats.
 
 
 
@@ -25,7 +25,7 @@ Steps are outlined here, as well as inside main.py
 
 2. In main.py, add courses you want to monitor following the example below
     >   course_codes.append("XXXX YYY ZZZ")
-    - *XXXX*: subj, eg CPSC
+    - *XXXX*: subject, eg CPSC
     - *YYY*: class, eg 213
     - *ZZZ*: section, eg L2D
 
