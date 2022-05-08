@@ -19,9 +19,14 @@ Steps are outlined here, as well as inside main.py
     - *gmail_ac* : sender gmail account
     - *gmail_pw* : sender gmail password
     - *email_to*: address of receving notificaion email
+    - Remark: You might have to allow "Less secure app access" first at: https://www.google.com/settings/security/lesssecureapp
+    - Below is the example code of the file constants.py:
 
-    Remark: You might have to allow "Less secure app access" first
-    at: https://www.google.com/settings/security/lesssecureapp
+```
+gmail_ac = 'testing123@gmail.com'
+gmail_pw = '01234567'
+email_to = 'testing234@gmail.com'
+```
 
 2. In main.py, add courses you want to monitor following the example below
     >   course_codes.append("XXXX YYY ZZZ")
